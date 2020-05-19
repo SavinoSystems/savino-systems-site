@@ -6,7 +6,8 @@ const http = require("http");
 const STATIC_PATH = "./www/";
 const HOSTS = [
 	"localhost",
-	"www.savino.systems"
+	"www.savino.systems",
+	"savino-systems-site.herokuapp.com"
 ];
 const PORT = getArg("--port") || getArg("-p") || process.env.PORT || 8888;
 
