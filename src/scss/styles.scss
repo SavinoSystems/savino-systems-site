@@ -1,5 +1,6 @@
 @import "reset";
 @import "colors";
+@import "fonts";
 
 html, body {
 	height:100%;
@@ -7,12 +8,14 @@ html, body {
 
 body {
 	font-family:arial, sans-serif;
+	background-color:$color-white;
+	color:$color-black;
 }
 
 h1 {
+	font-family:Extendo, sans-serif;
 	font-size:3em;
 	text-transform:uppercase;
-	margin:64px;
 }
 
 h2 {
@@ -22,7 +25,19 @@ h2 {
 }
 
 p {
-	margin:16px 0;
+	margin:8px 0;
+}
+
+abbr {
+	text-decoration:none;
+}
+
+a {
+	text-decoration:none;
+
+	&:hover {
+		text-decoration:underline;
+	}
 }
 
 #page {
@@ -32,11 +47,150 @@ p {
 }
 
 main {
-	flex:1;
+	width:100%;
+	display:flex;
+	flex-grow:1;
+
+	& > ul {
+		display:flex;
+		flex-direction:row;
+		width:100%;
+		margin:auto;
+
+		&:hover {
+			& > li {
+				& > a {
+					span {
+						writing-mode:vertical-rl;
+						text-orientation:mixed;
+					}
+				}
+				& > section {
+					opacity:0;
+				}
+			}
+		}
+
+		& > li {
+			position:relative;
+			width:33.333%;
+			overflow:hidden;
+			color:$color-white;
+			margin-left:32px;
+
+			&:after {
+				content:"";
+				display:block;
+				padding-top:100%;
+			}
+
+			&:first-child {
+				margin-left:0;
+			}
+			&:nth-child(1){
+				background-color:$color-primary-0;
+			}
+			&:nth-child(2){
+				background-color:$color-secondary-2-0;
+			}
+			&:nth-child(3){
+				background-color:$color-secondary-1-0;
+			}
+
+			&:hover {
+				width:90%;
+				flex-grow:1;
+
+				& > a span {
+					writing-mode:unset;
+					text-orientation:unset;
+				}
+
+				& > section {
+					opacity:1;
+				}
+			}
+
+			& > a {
+				position:absolute;
+				top:0;
+				left:0;
+				width:100%;
+				height:100%;
+				z-index:1;
+				color:$color-white;
+				font-size:2em;
+
+				span {
+					position:absolute;
+					bottom:0;
+					right:0;
+					box-sizing:border-box;
+					padding:16px;
+				}
+			}
+
+			& > section {
+				position:absolute;
+				top:0;
+				left:0;
+
+				& > ul {
+					text-align:left;
+					margin:16px;
+
+					& > li {
+						font-size:1.5em;
+						margin:8px 0;
+					}
+				}
+			}
+		}
+	}
 }
 
 .wrap {
 	max-width:1440px;
 	margin:auto;
 	text-align:center;
+}
+
+header {
+	box-sizing:border-box;
+	width:100%;
+	height:73px;
+	display:flex;
+	border-bottom:0.5px solid $color-border;
+
+	h1 {
+		margin:5px auto auto auto;
+	}
+}
+
+footer {
+	background-color:$color-black;
+	border-top:0.5px solid $color-border;
+
+	a {
+		color:$color-white;
+	}
+
+	p {
+		color:$color-white;
+		float:right;
+
+		&:first-child {
+			float:left;
+		}
+	}
+}
+
+.seo {
+	position:absolute;
+	top:0;
+	left:0;
+	width:0;
+	height:0;
+	opacity:0;
+	font-size:0;
 }
