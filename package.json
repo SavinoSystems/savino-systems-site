@@ -1,29 +1,30 @@
 {
-  "name": "savino-systems-site",
-  "version": "1.0.0",
-  "description": "Public website for Savino Systems",
-  "main": "app.js",
-  "scripts": {
-    "build": "npm run sass",
-    "start": "node app.js",
-    "sass": "node-sass --include-path ./src/scss ./src/scss/styles.scss ./www/css/styles.css --output-style compressed",
-    "watch": "nodemon -e sass,scss -x \"npm run sass\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SavinoSystems/savino-systems-site.git"
-  },
-  "author": "AJ Savino",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/SavinoSystems/savino-systems-site/issues"
-  },
-  "homepage": "https://github.com/SavinoSystems/savino-systems-site#readme",
-  "devDependencies": {
-    "node-sass": "^4.14.1",
-    "nodemon": "^2.0.4"
-  },
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+	"name": "savino-systems-site",
+	"version": "1.0.0",
+	"description": "Public website for Savino Systems",
+	"main": "server.js",
+	"scripts": {
+		"build": "npm run sass",
+		"start": "node server.js",
+		"sass": "sass ./src/scss/styles.scss ./www/css/styles.css --load-path=./node_modules --style=compressed",
+		"watch": "nodemon -e sass,scss -x \"npm run sass\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/SavinoSystems/savino-systems-site.git"
+	},
+	"author": "AJ Savino",
+	"license": "UNLICENSED",
+	"bugs": {
+		"url": "https://github.com/SavinoSystems/savino-systems-site/issues"
+	},
+	"homepage": "https://github.com/SavinoSystems/savino-systems-site#readme",
+	"devDependencies": {
+		"express": "^5.2.1",
+		"nodemon": "^3.1.14",
+		"sass": "^1.104.0"
+	},
+	"dependencies": {
+		"reset-css": "^5.0.2"
+	}
 }
