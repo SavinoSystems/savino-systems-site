@@ -1,110 +1,125 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<title>Savino Systems</title>
 
-		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width,initial-scale=1"/>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-		<meta name="theme-color" content="#000"/>
-		<meta name="msapplication-navbutton-color" content="#000"/>
-		<meta name="apple-mobile-web-app-status-bar-style" content="#000"/>
+		<meta name="theme-color" content="#000" />
+		<meta name="msapplication-navbutton-color" content="#000" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="#000" />
 
-		<meta name="description" content="Savino Systems"/>
+		<meta name="description" content="Innovative solutions for modern businesses." />
 
-		<link rel="stylesheet" href="css/styles.css" type="text/css"/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Zen+Dots&display=swap" rel="stylesheet" />
+
+		<link rel="stylesheet" href="css/styles.css" type="text/css" />
 
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-167188092-1"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-			gtag('config', 'UA-167188092-1');
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+			gtag("config", "UA-167188092-1");
 		</script>
 	</head>
 	<body>
-		<div id="page">
-			<header>
-				<div class="wrap">
-					<h1>Savino Systems</h1>
-				</div>
-			</header>
-			<main class="wrap">
-				<ul>
-					<li>
-						<a href="#development"><span>Software Development</span></a>
-						<section id="development">
-							<h2 class="seo">Software Development</h2>
-							<ul>
-								<li>Web Development</li>
-								<li>App Development</li>
-								<li>JavaScript</li>
-								<li>C#</li>
-								<li>.NET</li>
-								<li>C++</li>
-								<li>HTML 5</li>
-								<li>CSS 3</li>
-								<li>SASS</li>
-								<li>PHP</li>
-								<li>SQL Server</li>
-								<li>MySQL</li>
-								<li>NodeJS</li>
-								<li>Sitecore</li>
-								<li>Adobe Experience Manager (AEM)</li>
-								<li>React</li>
-								<li>Vue.js</li>
-								<li>Android</li>
-								<li>WordPress</li>
-								<li>Shopify</li>
-								<li>Java</li>
-								<li>Entity Framework</li>
-								<li>Continuous Integration</li>
-								<li>Apache</li>
-								<li>IIS</li>
-							</ul>
-						</section>
-					</li>
-					<li>
-						<a href="#consulting"><span>Technical Consulting</span></a>
-						<section id="consulting">
-							<h2 class="seo">Technical Consulting</h2>
-							<ul>
-								<li>Search Engine Optimization</li>
-								<li>Web Accessibility</li>
-								<li>Vulnerability Assessment</li>
-								<li>Networking</li>
-								<li>Hardware</li>
-								<li>Analytics</li>
-								<li>Marketing</li>
-								<li>Architecture</li>
-								<li>Systems Design</li>
-								<li>Source Control Management</li>
-								<li>Ethical Hacking</li>
+		<main>
+			<section id="hero">
+				<div class="hero-content wrap">
+					<div class="hero-content_top">
+						<h1>Savino Systems LLC</h1>
+	
+						<p>
+							<span id="hero-subhead">Innovative solutions for modern businesses.</span>
+	
+							<ul id="hero-services" class="hide-text">
+								<li>Custom Software Development</li>
 								<li>3D Printing</li>
+								<li>Electronic Prototyping</li>
+								<li>Applied AI</li>
+								<li>IT Consulting</li>
 							</ul>
-						</section>
-					</li>
-					<li>
-						<a href="#training"><span><abbr title="Information Technology">IT</abbr> Training</span></a>
-						<section id="training">
-							<h2 class="seo"><abbr title="Information Technology">IT</abbr> Training</h2>
-							<ul>
-								<li>Secure Coding</li>
-								<li>Programming</li>
-								<li>Computing Basics</li>
-								<li>Web Accessibility</li>
-								<li>Search Engine Optimization</li>
-							</ul>
-						</section>
-					</li>
-				</ul>
-			</main>
-			<footer>
+						</p>
+					</div>
+
+					<div class="hero-content_bottom">
+						<a href="mailto:info@savino.systems" class="btn btn-primary">Contact Us</a>
+					</div>
+				</div>
+			</section>
+
+			<section id="services">
 				<div class="wrap">
-					<p>&copy; Copyright 2020 Savino&nbsp;Systems&nbsp;LLC</p>
+					<h2>Services</h2>
+					<p>We offer a range of services to help your business thrive in the digital age.</p>
+				</div>
+			</section>
+
+			<footer id="footer">
+				<div class="wrap">
 					<p><a href="mailto:info@savino.systems">info@savino.systems</a></p>
+					<p>&copy; Copyright <span id="footerYear"></span> - Savino Systems LLC</p>
 				</div>
 			</footer>
-		</div>
+		</main>
+
+		<script>
+			//Update year in footer to current
+			document.getElementById("footerYear").innerText = new Date().getFullYear();
+
+			(async function animateServices(){
+				
+				const heroSubhead = document.getElementById("hero-subhead");
+				const heroServices = document.getElementById("hero-services");
+				const heroServicesItems = heroServices.getElementsByTagName("li");
+				
+				let currentText = "";
+				let currentServiceIndex = -1;
+				while (true){
+					currentText = "";
+					currentServiceIndex = (currentServiceIndex + 1) % heroServicesItems.length;
+					const targetText = heroServicesItems[currentServiceIndex].innerText;
+					
+					// Type each letter of the target text
+					heroSubhead.classList.add("hero-subhead_typing");
+					for (let i = 0; i < targetText.length; i++) {
+						currentText += targetText[i];
+						heroSubhead.innerText = currentText;
+						await sleep(70);
+					}
+					heroSubhead.classList.remove("hero-subhead_typing");
+					
+					// Wait some time
+					heroSubhead.classList.add("hero-subhead_complete");
+					await sleep(2000);
+					heroSubhead.classList.remove("hero-subhead_complete");
+					
+					// Delete each letter of the target text
+					heroSubhead.classList.add("hero-subhead_typing");
+					for (let i = 0; i < targetText.length; i++) {
+						currentText = currentText.slice(0, -1);
+						heroSubhead.innerText = currentText;
+						await sleep(30);
+					}
+					heroSubhead.classList.remove("hero-subhead_typing");
+
+					// Wait some time
+					heroSubhead.classList.add("hero-subhead_empty");
+					await sleep(1000);
+					heroSubhead.classList.remove("hero-subhead_empty");
+				}
+			})();
+
+			function sleep(ms){
+				return new Promise(resolve => setTimeout(resolve, ms));
+			}
+		</script>
 	</body>
 </html>

@@ -1,5 +1,13 @@
-@font-face {
-	font-family: 'Extendo';
+@mixin zen-dots {
+	font-family: "Zen Dots", sans-serif;
 	font-weight: 400;
-	src: url(../fonts/Extendo.otf) format("otf");
-  }
+	font-style: normal;
+}
+
+@mixin roboto($weight) {
+	font-family: "Roboto", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: $weight;
+	font-style: normal;
+	font-variation-settings: "wdth" 100;
+}
