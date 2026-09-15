@@ -35,36 +35,64 @@
 				<div class="hero-content wrap">
 					<div class="hero-content_top">
 						<h1>Savino Systems LLC</h1>
-	
+
 						<p>
 							<span id="hero-subhead">Innovative solutions for modern businesses.</span>
-	
-							<ul id="hero-services" class="hide-text">
-								<li>Custom Software Development</li>
-								<li>3D Printing</li>
-								<li>Electronic Prototyping</li>
-								<li>Applied AI</li>
-								<li>IT Consulting</li>
-							</ul>
 						</p>
 					</div>
 
 					<div class="hero-content_bottom">
-						<a href="mailto:info@savino.systems" class="btn btn-primary">Contact Us</a>
+						<button id="btn-contact" class="btn btn-primary" type="button">Contact Us</button>
+						<span id="contact-details">We would love to hear from you!<br />Drop us a line: <a href="mailto:info@savino.systems">info@savino.systems</a></span>
 					</div>
 				</div>
 			</section>
 
-			<section id="services">
+			<section id="about">
 				<div class="wrap">
-					<h2>Services</h2>
-					<p>We offer a range of services to help your business thrive in the digital age.</p>
+					<h2>About AJ Savino</h2>
+					<p>
+						Founder of <em>Savino Systems LLC</em>, AJ Savino has over 15 years of industry experience and has spent a lifetime building and innovating in the field of
+						technology.
+					</p>
+
+					<section id="expertise">
+						<h3>Expertise</h3>
+						<ul id="expertise-list">
+							<li>
+								<strong>Custom Software Development</strong>
+								<p>
+									Programming since the year 2000, AJ Savino has worked across a breadth of technologies including HTML, CSS, JavaScript, React, NodeJS, DotNet
+									and many more.
+								</p>
+								<p>Industry experience spans verticals including Media, Telecom, Consumer Goods, Casual Dining, and Technology.</p>
+							</li>
+							<li>
+								<strong>Applied AI</strong>
+								<p>Applied Artificial Intelligence focuses on leveraging AI to solve complex business problems and provide real value to end users.</p>
+							</li>
+							<li>
+								<strong>3D Printing and Design</strong>
+								<p>Expertise in 3D printing, design, and creating prototypes for physical products and electronics.</p>
+							</li>
+							<li>
+								<strong>Electronic Prototyping</strong>
+								<p>
+									Skilled in electronic prototyping with platforms like Arduino and Raspberry Pi, developing innovative hardware solutions from concept to
+									production.
+								</p>
+							</li>
+							<li>
+								<strong>IT Consulting</strong>
+								<p>Providing strategic IT consulting to help businesses scale with expertise in networking, cloud infrastructure, and cybersecurity.</p>
+							</li>
+						</ul>
+					</section>
 				</div>
 			</section>
 
 			<footer id="footer">
 				<div class="wrap">
-					<p><a href="mailto:info@savino.systems">info@savino.systems</a></p>
 					<p>&copy; Copyright <span id="footerYear"></span> - Savino Systems LLC</p>
 				</div>
 			</footer>
@@ -74,19 +102,18 @@
 			//Update year in footer to current
 			document.getElementById("footerYear").innerText = new Date().getFullYear();
 
-			(async function animateServices(){
-				
+			(async function animateServices() {
 				const heroSubhead = document.getElementById("hero-subhead");
-				const heroServices = document.getElementById("hero-services");
-				const heroServicesItems = heroServices.getElementsByTagName("li");
-				
+				const expertiseList = document.getElementById("expertise-list");
+				const expertiseListItems = expertiseList.querySelectorAll("li strong");
+
 				let currentText = "";
 				let currentServiceIndex = -1;
-				while (true){
+				while (true) {
 					currentText = "";
-					currentServiceIndex = (currentServiceIndex + 1) % heroServicesItems.length;
-					const targetText = heroServicesItems[currentServiceIndex].innerText;
-					
+					currentServiceIndex = (currentServiceIndex + 1) % expertiseListItems.length;
+					const targetText = expertiseListItems[currentServiceIndex].innerText;
+
 					// Type each letter of the target text
 					heroSubhead.classList.add("hero-subhead_typing");
 					for (let i = 0; i < targetText.length; i++) {
@@ -95,12 +122,12 @@
 						await sleep(70);
 					}
 					heroSubhead.classList.remove("hero-subhead_typing");
-					
+
 					// Wait some time
 					heroSubhead.classList.add("hero-subhead_complete");
 					await sleep(2000);
 					heroSubhead.classList.remove("hero-subhead_complete");
-					
+
 					// Delete each letter of the target text
 					heroSubhead.classList.add("hero-subhead_typing");
 					for (let i = 0; i < targetText.length; i++) {
@@ -117,9 +144,19 @@
 				}
 			})();
 
-			function sleep(ms){
-				return new Promise(resolve => setTimeout(resolve, ms));
+			function sleep(ms) {
+				return new Promise((resolve) => setTimeout(resolve, ms));
 			}
+
+			const btnContact = document.getElementById("btn-contact");
+			btnContact.addEventListener("click", function () {
+				// Slight delay for button animation
+				setTimeout(() => {
+					const contactDetails = document.getElementById("contact-details");
+					contactDetails.style.display = "inline-block";
+					btnContact.style.display = "none";
+				}, 250);
+			});
 		</script>
 	</body>
 </html>
