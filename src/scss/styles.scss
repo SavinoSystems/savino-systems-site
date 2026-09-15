@@ -24,17 +24,19 @@ body {
 main {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
+	min-height: 100%;
 	padding: 0 32px;
 	gap: 32px;
 
 	@media (max-width: $bp) {
-		padding: 0 24px;
+		padding: 0 12px;
 		gap: 24px;
 	}
 }
 
 a {
+	position: relative;
+	z-index: 1;
 	color: var(--primary-400);
 
 	&:hover,
@@ -71,6 +73,10 @@ h2 {
 }
 h3 {
 	font-size: 1.5rem;
+
+	@media (max-width: $bp) {
+		font-size: 1.25rem;
+	}
 }
 h4 {
 	font-size: 1.25rem;
@@ -85,6 +91,9 @@ h6 {
 p {
 	margin: 8px 0;
 	font-size: 0.9rem;
+}
+strong {
+	font-weight: bold;
 }
 
 .hide-text {
@@ -111,8 +120,6 @@ p {
 	$radius-large: 32px;
 	$radius-small: 24px;
 
-	min-height: 300px;
-
 	#hero-subhead {
 		display: inline-block;
 		background: var(--page-background);
@@ -121,6 +128,7 @@ p {
 		border-right: 2px solid var(--secondary-200);
 		transition: 0.1s padding;
 		animation: hero-subhead-border-blink 0.73s infinite;
+		padding: 4px 0;
 
 		&.hero-subhead_empty {
 			padding: 4px 0;
@@ -146,15 +154,15 @@ p {
 
 		@media (max-width: $bp) {
 			font-size: 1.25rem;
+			min-height: calc(1.25rem + 8px);
 		}
 	}
 
 	.hero-content {
-		height: 100%;
+		min-height: 300px;
 		display: flex;
 		flex-direction: column;
 		gap: 8px;
-
 		background-color: var(--primary-300);
 		border-radius: 0 0 $radius-large $radius-large;
 		border-bottom: 2px solid var(--secondary-200);
@@ -170,6 +178,7 @@ p {
 			position: absolute;
 			top: 0;
 			left: 0;
+			z-index: -1;
 			border-radius: 0 0 $radius-large $radius-large;
 			box-shadow: 0 0px 24px var(--secondary-100);
 			opacity: 0.73;
@@ -191,10 +200,29 @@ p {
 			border-radius: 0 0 $radius-small $radius-small;
 		}
 	}
+
+	#contact-details {
+		display: none;
+		text-align: right;
+	}
 }
 
-#services {
+#about {
 	flex-grow: 1;
+}
+#expertise {
+	margin: 32px 0;
+
+	#expertise-list {
+		& > li {
+			margin-top: 24px;
+
+			strong {
+				border-left: 2px solid var(--secondary-100);
+				padding-left: 8px;
+			}
+		}
+	}
 }
 
 #footer {
@@ -214,7 +242,6 @@ p {
 	font-size: 1.1rem;
 	font-weight: bold;
 	padding: 12px 16px;
-	border-radius: 3px;
 	border: 0;
 	background: transparent;
 	-webkit-appearance: none;
@@ -240,6 +267,7 @@ p {
 		position: absolute;
 		border: 1px solid transparent;
 		z-index: -1;
+		border-radius: 8px;
 		transition:
 			top 0.1s,
 			left 0.1s,
